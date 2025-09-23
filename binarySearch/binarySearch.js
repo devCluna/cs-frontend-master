@@ -1,29 +1,27 @@
 const input = [1,3,4,5,6,8,12,14,16]
+/* console.log('INPUT:', JSON.stringify(input)) */
 
 function binarySearch(target, input){
     let min=0
-    let max=input.length -1
-    let index, element
-    
-    while(min <=max){
-        index = Math.floor((min+max)/2)
-        element=input[index]
+    let max= input.length-1
+    let selectedElement, index
 
-        if(element === target){
+    while(min <= max) {
+        index = Math.floor((min + max) / 2)
+        selectedElement = input[index]
+
+        if(target === selectedElement) {
             return index
         }
-        
-        if(element > target) {
-            console.log(element)
-            max = index-1
-        }else {
-            console.log(element)
-            min = index+1 
+
+        if(selectedElement < target) {
+            min = index + 1
+        } else {
+            max = index - 1
         }
     }
-
+    
     return -1
-
 }
 
-console.log('OUTPUT:', JSON.stringify(binarySearch(3,input)))
+/* console.log('OUTPUT:', JSON.stringify(binarySearch(12,input))) */
