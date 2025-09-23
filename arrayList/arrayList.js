@@ -9,13 +9,13 @@ class ArrayList {
     push(value){
         //adds info at the end
         this.data[this.length]=value
-        this.length= this.length+1
+        this.length=this.length+1
     }
 
     pop(){
         //removes item at the end
         delete this.data[this.length-1]
-        this.length= this.length-1
+        this.length=this.length-1
     }
 
     
@@ -31,21 +31,30 @@ class ArrayList {
             this.data = {...this.data, [index]:this.data[i-1] }
             index=index+1
         })
-
-
+        this.length= this.length-1
+        
+        
     }
 }
+module.exports = ArrayList;
+
 const array = new ArrayList()
+
+//Add new elements to the array
 array.push(1)
 array.push(2)
 array.push(3)
 array.push(4)
-array.push(5)
-array.push(6)
-console.log('ARRAY',array)
+console.log('STATUS:', array)
+
+
+//Remove last element from the array
 array.pop()
+console.log('STATUS:', array)
+
+//Get element by index
+console.log('SELECTED ELEMENT', array.get(1))
+
+//Delete element by index and collapse the array
 array.delete(1)
-console.log('GET',array.get(0))
-
-
-console.log(array)
+console.log('STATUS:', array)
